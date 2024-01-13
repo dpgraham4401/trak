@@ -2,8 +2,13 @@ services:
   postgres:
     image: 'postgres:latest'
     environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+      POSTGRES_DB: 'trak'
+      POSTGRES_PASSWORD: 'password'
+      POSTGRES_USER: 'trakuser'
     ports:
-      - '5432'
+      - '5432:5432'
+    volumes:
+      - 'trak:/var/lib/postgresql/data'
+
+volumes:
+  trak:
