@@ -1,5 +1,6 @@
 package com.haztrak.trak.RcrainfoSite;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,19 +11,20 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/")
 public class RcrainfoSiteController {
-    private final RcrainfoSiteRepository repository;
+    private final RcrainfoSiteService service;
 
-    RcrainfoSiteController(RcrainfoSiteRepository repository) {
-        this.repository = repository;
+    @Autowired
+    RcrainfoSiteController(RcrainfoSiteService service) {
+        this.service = service;
     }
 
     @GetMapping("site")
     List<RcrainfoSite> findByEpaId() {
-        return repository.findAll();
+        return service.findAll();
     }
 
     @GetMapping("site/{epaId}")
     RcrainfoSite findByEpaId(@PathVariable String epaId) {
-        return repository.findByEpaId(epaId);
+        return service.findByEpaId(epaId);
     }
 }
