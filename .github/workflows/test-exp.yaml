@@ -1,0 +1,23 @@
+name: Do the Mess Around
+
+on:
+  workflow_dispatch:
+    inputs:
+      yup:
+        type: string
+        description: 'Job to run'
+        required: true
+        default: 'job1'
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: see git version
+        run: git --version
+      - name: install git mistake
+        run: sudo apt-get install --assume-yes git
+      - name: see git version
+        run: git --version
