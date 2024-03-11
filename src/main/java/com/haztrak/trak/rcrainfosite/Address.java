@@ -1,10 +1,10 @@
-package com.haztrak.trak.RcrainfoSite.entities;
+package com.haztrak.trak.rcrainfosite;
 
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "address")
-public class Address {
+class Address {
 
     @Id
     @GeneratedValue

@@ -1,7 +1,6 @@
-package com.haztrak.trak.RcrainfoSite.entities;
+package com.haztrak.trak.rcrainfosite;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.haztrak.trak.RcrainfoSite.serializers.SiteTypeSerializer;
 import jakarta.persistence.*;
 
 @Entity

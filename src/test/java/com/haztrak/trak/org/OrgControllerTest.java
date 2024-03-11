@@ -1,5 +1,4 @@
-package com.haztrak.trak.RcrainfoSite;
-
+package com.haztrak.trak.org;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,20 +10,16 @@ import org.springframework.http.ResponseEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class RcrainfoSiteControllerTest {
+public class OrgControllerTest {
+
 
     @Autowired
-    TestRestTemplate restTemplate;
+    private TestRestTemplate restTemplate;
 
     @Test
-    public void LearningJavaTest() {
-        assert (true);
-    }
+    public void returns200() {
+        ResponseEntity<String> response = restTemplate.getForEntity("/api/org", String.class);
 
-    @Test
-    public void Returns404WhenNotFound() {
-        ResponseEntity<String> response = restTemplate.getForEntity("/api/site/bad-site-id", String.class);
-
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 }

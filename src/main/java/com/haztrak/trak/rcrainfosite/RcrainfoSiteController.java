@@ -1,9 +1,7 @@
-package com.haztrak.trak.RcrainfoSite;
+package com.haztrak.trak.rcrainfosite;
 
-import com.haztrak.trak.RcrainfoSite.entities.RcrainfoSite;
-import com.haztrak.trak.RcrainfoSite.errors.RcrainfoSiteErrorResponse;
-import com.haztrak.trak.RcrainfoSite.errors.RcrainfoSiteNotFoundException;
-import com.haztrak.trak.RcrainfoSite.services.RcrainfoSiteService;
+import com.haztrak.trak.rcrainfosite.errors.RcrainfoSiteErrorResponse;
+import com.haztrak.trak.rcrainfosite.errors.RcrainfoSiteNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +15,8 @@ public class RcrainfoSiteController {
     private final RcrainfoSiteService service;
 
     @Autowired
-    RcrainfoSiteController(RcrainfoSiteService service) {
-        this.service = service;
+    RcrainfoSiteController(RcrainfoSiteService rcrainfoSiteService) {
+        service = rcrainfoSiteService;
     }
 
     @GetMapping("site")

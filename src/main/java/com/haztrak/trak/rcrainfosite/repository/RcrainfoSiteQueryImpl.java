@@ -1,6 +1,6 @@
-package com.haztrak.trak.RcrainfoSite.repository;
+package com.haztrak.trak.rcrainfosite.repository;
 
-import com.haztrak.trak.RcrainfoSite.entities.RcrainfoSite;
+import com.haztrak.trak.rcrainfosite.RcrainfoSite;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;

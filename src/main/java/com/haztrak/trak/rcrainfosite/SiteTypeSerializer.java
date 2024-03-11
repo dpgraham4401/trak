@@ -1,13 +1,12 @@
-package com.haztrak.trak.RcrainfoSite.serializers;
+package com.haztrak.trak.rcrainfosite;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import com.haztrak.trak.RcrainfoSite.entities.SiteType;
 
 import java.io.IOException;
 
-public class SiteTypeSerializer extends StdSerializer<SiteType> {
+class SiteTypeSerializer extends StdSerializer<SiteType> {
     @Override
     public void serialize(SiteType siteType, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
 
