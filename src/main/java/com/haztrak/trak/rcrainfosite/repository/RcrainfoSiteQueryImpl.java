@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 class RcrainfoSiteQueryImpl implements RcrainfoSiteQuery {
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     @Autowired
     public RcrainfoSiteQueryImpl(EntityManager entityManager) {
