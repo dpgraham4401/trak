@@ -1,6 +1,6 @@
 package com.haztrak.trak.rcrainfosite;
 
-enum SiteType {
+public enum SiteType {
     Generator,
     Tsdf,
     Transporter,
