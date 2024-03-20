@@ -7,8 +7,20 @@ services:
       POSTGRES_USER: 'trakuser'
     ports:
       - '5432:5432'
-    volumes:
-      - 'trak:/var/lib/postgresql/data'
+    restart: unless-stopped
+  #    volumes:
+  #      - 'trak:/var/lib/postgresql/data'
+  pgadmin:
+    image: 'dpage/pgadmin4'
+    container_name: 'trak-pgadmin'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@localhost.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_LISTEN_PORT: 5050
+    ports:
+      - '5050:5050'
+
+
 
 volumes:
   trak:

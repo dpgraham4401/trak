@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "rcrainfo_site", schema = "site")
+@Table(name = "rcrainfo_site")
 public class RcrainfoSite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
