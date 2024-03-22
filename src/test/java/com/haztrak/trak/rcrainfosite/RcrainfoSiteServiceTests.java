@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
+@SpringBootTest(classes = {RcrainfoSiteService.class},webEnvironment= SpringBootTest.WebEnvironment.NONE)
 public class RcrainfoSiteServiceTests {
 
     @Autowired
@@ -34,7 +34,6 @@ public class RcrainfoSiteServiceTests {
         RcrainfoSite expectedSite = new RcrainfoSite("foo", epaId);
         when(repository.findByEpaId(epaId)).thenReturn(Optional.of(expectedSite));
         RcrainfoSite actualSite = service.findByEpaId(epaId);
-        System.out.println(actualSite);
         assertThat(actualSite).isEqualTo(expectedSite);
     }
 
