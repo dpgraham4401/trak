@@ -43,4 +43,33 @@ public class OrgTests {
         assertEquals(newName, org.getName());
     }
 
+    @Test
+    @DisplayName("get Organization description")
+    public void descriptionIsSetCorrectly() {
+        String description = "Test Description";
+        Org org = new Org(1, "Test Org");
+        org.setDescription(description);
+        assertEquals(description, org.getDescription());
+    }
+
+    @Test
+    @DisplayName("set the organization description")
+    public void testSetOrgDescription() {
+        String originalDescription = "foo";
+        String newDescription = "bar";
+        Org org = new Org(1, "Test Org");
+        org.setDescription(originalDescription);
+        org.setDescription(newDescription);
+        assertEquals(newDescription, org.getDescription());
+    }
+
+    @Test
+    @DisplayName("get Organization subOrg")
+    public void subOrgIsSetCorrectly() {
+        Org org = new Org(1, "Test Org");
+        Org anotherOrg = new Org(2, "foo");
+        anotherOrg.setParentOrg(org);
+        assertEquals(org, anotherOrg.getParentOrg());
+    }
+
 }

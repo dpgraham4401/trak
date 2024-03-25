@@ -3,12 +3,12 @@ package com.haztrak.trak.org;
 import com.haztrak.trak.org.errors.OrgNotFoundException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -39,5 +39,28 @@ public class OrgServiceTests {
         int orgId = 1;
         when(repository.findById(orgId)).thenThrow(new OrgNotFoundException(orgId));
         assertThrows(OrgNotFoundException.class, () -> service.findById(orgId));
+    }
+
+    @Test
+    @DisplayName("findAllSubOrgs returns an empty list when no sub-organizations found")
+    public void findAllSubOrgsReturnsEmpty() {
+        int orgId = 1;
+        when(repository.findAllSubOrgs(orgId)).thenReturn(new ArrayList<Org>());
+        assertThat(service.findAllSubOrgs(orgId)).isEmpty();
+    }
+
+    @Test
+    @DisplayName("findAllSubOrgs returns a list of Orgs")
+    public void findAllSubOrgsReturnsAList() {
+        int orgId = 1;
+        Org parentOrg = new Org(orgId, "foo");
+        Org childOrg1 = new Org(2, "bar");
+        Org childOrg2 = new Org(3, "baz");
+        when(repository.findAllSubOrgs(orgId)).thenReturn(new ArrayList<Org>(
+                List.of(childOrg1, childOrg2)
+        ));
+        List<Org> subOrgs = service.findAllSubOrgs(orgId);
+        assertThat(subOrgs.size()).isEqualTo(2);
+        assertThat(subOrgs).contains(childOrg1, childOrg2);
     }
 }

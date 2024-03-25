@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class RcrainfoSiteControllerTest {
+public class RcrainfoSiteControllerTests {
 
     @MockBean
     private RcrainfoSiteService service;
