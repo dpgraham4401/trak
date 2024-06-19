@@ -1,18 +1,18 @@
-package com.haztrak.trak.rcrainfosite;
+package com.haztrak.trak.rcrasite;
 
-import com.haztrak.trak.rcrainfosite.errors.RcrainfoSiteErrorResponse;
+import com.haztrak.trak.rcrasite.errors.RcraSiteErrorResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RcrainfoSiteErrorResponseTests {
+public class RcraSiteErrorResponseTests {
 
-    private RcrainfoSiteErrorResponse response;
+    private RcraSiteErrorResponse response;
 
     @BeforeEach
     public void setup() {
-        response = new RcrainfoSiteErrorResponse(404, "Not Found", System.currentTimeMillis());
+        response = new RcraSiteErrorResponse(404, "Not Found", System.currentTimeMillis());
     }
 
     @Test

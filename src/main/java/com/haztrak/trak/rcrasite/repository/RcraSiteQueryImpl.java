@@ -1,6 +1,6 @@
-package com.haztrak.trak.rcrainfosite.repository;
+package com.haztrak.trak.rcrasite.repository;
 
-import com.haztrak.trak.rcrainfosite.RcrainfoSite;
+import com.haztrak.trak.rcrasite.RcraSite;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,26 +9,26 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-class RcrainfoSiteQueryImpl implements RcrainfoSiteQuery {
+class RcraSiteQueryImpl implements RcraSiteQuery {
 
     private final EntityManager entityManager;
 
     @Autowired
-    public RcrainfoSiteQueryImpl(EntityManager entityManager) {
+    public RcraSiteQueryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
     /**
-     * Find all RcrainfoSite entities for a given user.
+     * Find all RcraSite entities for a given user.
      * This is an example of a custom query, currently does not work as the user entity has not been implemented.
      *
      * @param user String
-     * @return List<RcrainfoSite>
+     * @return List<RcraSite>
      */
     @Override
-    public List<RcrainfoSite> findByUser(String user) {
-        TypedQuery<RcrainfoSite> query = entityManager.createQuery(
-                "SELECT r FROM RcrainfoSite r", RcrainfoSite.class);
+    public List<RcraSite> findByUser(String user) {
+        TypedQuery<RcraSite> query = entityManager.createQuery(
+                "SELECT r FROM RcraSite r", RcraSite.class);
         return query.getResultList();
     }
 }

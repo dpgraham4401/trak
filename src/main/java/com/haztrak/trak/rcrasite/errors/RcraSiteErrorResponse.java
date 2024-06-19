@@ -1,12 +1,12 @@
-package com.haztrak.trak.rcrainfosite.errors;
+package com.haztrak.trak.rcrasite.errors;
 
-public class RcrainfoSiteErrorResponse {
+public class RcraSiteErrorResponse {
 
     private int status;
     private String message;
     private long timestamp;
 
-    public RcrainfoSiteErrorResponse(int status, String message, long timestamp) {
+    public RcraSiteErrorResponse(int status, String message, long timestamp) {
         this.status = status;
         this.message = message;
         this.timestamp = timestamp;

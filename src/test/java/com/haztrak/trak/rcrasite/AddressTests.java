@@ -1,4 +1,4 @@
-package com.haztrak.trak.rcrainfosite;
+package com.haztrak.trak.rcrasite;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

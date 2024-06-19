@@ -1,4 +1,4 @@
-package com.haztrak.trak.rcrainfosite;
+package com.haztrak.trak.rcrasite;
 
 import jakarta.persistence.*;
 
