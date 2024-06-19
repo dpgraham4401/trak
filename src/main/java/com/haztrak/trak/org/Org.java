@@ -1,22 +1,17 @@
 package com.haztrak.trak.org;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+
 @Table(name = "organization")
 public class Org {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "name")
+
     private String name;
-
-    @Column(name = "description")
-    private String description;
-
-    @ManyToOne
-    @JoinColumn(name = "parent_org")
-    private Org parentOrg;
 
     public Org() {
     }
@@ -41,21 +36,5 @@ public class Org {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Org getParentOrg() {
-        return parentOrg;
-    }
-
-    public void setParentOrg(Org parentOrg) {
-        this.parentOrg = parentOrg;
     }
 }

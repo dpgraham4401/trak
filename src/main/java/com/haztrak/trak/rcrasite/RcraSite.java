@@ -9,8 +9,10 @@ public class RcraSite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column(name = "epa_id")
     private String epaId;
+
     @Column(name = "name", nullable = false)
     private String name;
 
