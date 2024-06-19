@@ -11,7 +11,7 @@ INSERT INTO address (street_number, address_1, address_2, city, state, country, 
 VALUES ('456', 'Street 2', 'Apt 2', 'City 2', 'State 2', 'Country 2', 'Zip 2');
 
 -- Insert data into rcrainfo_site table
-INSERT INTO rcrainfo_site (epa_id, name, type, gis_primary, mailing_address_id, site_address_id)
+INSERT INTO rcra_site (epa_id, name, type, gis_primary, mailing_address_id, site_address_id)
 VALUES ('EPA1', 'Site 1', 'Generator', true, 1, 2);
-INSERT INTO rcrainfo_site (epa_id, name, type, gis_primary, mailing_address_id, site_address_id)
+INSERT INTO rcra_site (epa_id, name, type, gis_primary, mailing_address_id, site_address_id)
 VALUES ('EPA2', 'Site 2', 'Transporter', false, 2, 1);
