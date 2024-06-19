@@ -33,3 +33,7 @@ build/
 .vscode/
 
 **/htmlReport/*
+
+### Environment ###
+.env
+.env.local
