@@ -1,15 +1,15 @@
-package com.haztrak.trak.rcrainfosite;
+package com.haztrak.trak.rcrasite;
 
-import com.haztrak.trak.rcrainfosite.errors.RcrainfoSiteNotFoundException;
+import com.haztrak.trak.rcrasite.errors.RcraSiteNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-class RcrainfoSiteExceptionHandler {
-    @ExceptionHandler(RcrainfoSiteNotFoundException.class)
-    public ResponseEntity<ExceptionResponse> handleException(RcrainfoSiteNotFoundException e) {
+class RcraSiteExceptionHandler {
+    @ExceptionHandler(RcraSiteNotFoundException.class)
+    public ResponseEntity<ExceptionResponse> handleException(RcraSiteNotFoundException e) {
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
                 .body(new ExceptionResponse(e.getMessage(), HttpStatus.NOT_FOUND.value()));

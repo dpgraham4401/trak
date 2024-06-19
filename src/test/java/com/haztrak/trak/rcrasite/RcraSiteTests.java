@@ -1,4 +1,4 @@
-package com.haztrak.trak.rcrainfosite;
+package com.haztrak.trak.rcrasite;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,14 +9,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.mock;
 
-@DisplayName("Rcrainfo Site")
-public class RcrainfoSiteTests {
+@DisplayName("Rcra Site")
+public class RcraSiteTests {
 
     @Test
     @DisplayName("EPA ID getter and setter")
     public void testEpaId() {
         String epaId = "12345";
-        RcrainfoSite site = new RcrainfoSite();
+        RcraSite site = new RcraSite();
         site.setEpaId(epaId);
         assertEquals(epaId, site.getEpaId());
     }
@@ -25,7 +25,7 @@ public class RcrainfoSiteTests {
     @DisplayName("Site Address getter and setter")
     public void testSiteAddress() {
         Address mockAddress = mock(Address.class);
-        RcrainfoSite site = new RcrainfoSite();
+        RcraSite site = new RcraSite();
         site.setSiteAddress(mockAddress);
         assertEquals(mockAddress, site.getSiteAddress());
     }
@@ -34,7 +34,7 @@ public class RcrainfoSiteTests {
     @DisplayName("Mailing Address getter and setter")
     public void testMailingAddress() {
         Address mockAddress = mock(Address.class);
-        RcrainfoSite site = new RcrainfoSite();
+        RcraSite site = new RcraSite();
         site.setMailingAddress(mockAddress);
         assertEquals(mockAddress, site.getMailingAddress());
     }
@@ -42,7 +42,7 @@ public class RcrainfoSiteTests {
     @Test
     @DisplayName("EPA ID getter")
     public void testSiteEpaID() throws NoSuchFieldException, IllegalAccessException {
-        RcrainfoSite site = new RcrainfoSite();
+        RcraSite site = new RcraSite();
         String mockEpaId = "VATEST12345";
         site.setEpaId(mockEpaId);
         final Field field = site.getClass().getDeclaredField("epaId");
@@ -54,7 +54,7 @@ public class RcrainfoSiteTests {
     @DisplayName("Should set and get site type")
     public void siteType() {
         SiteType siteType = SiteType.Generator;
-        RcrainfoSite site = new RcrainfoSite();
+        RcraSite site = new RcraSite();
         site.setType(siteType);
         assertEquals(siteType, site.getType());
     }
@@ -63,7 +63,7 @@ public class RcrainfoSiteTests {
     @DisplayName("Should set and get GIS primary")
     public void gisPrimary() {
         Boolean gisPrimary = true;
-        RcrainfoSite site = new RcrainfoSite();
+        RcraSite site = new RcraSite();
         site.setGisPrimary(gisPrimary);
         assertEquals(gisPrimary, site.getGisPrimary());
     }
@@ -72,7 +72,7 @@ public class RcrainfoSiteTests {
     @DisplayName("Should set and get site name")
     public void siteName() {
         String name = "Test Site";
-        RcrainfoSite site = new RcrainfoSite();
+        RcraSite site = new RcraSite();
         site.setName(name);
         assertEquals(name, site.getName());
     }
@@ -81,7 +81,7 @@ public class RcrainfoSiteTests {
     @DisplayName("Should set and get site id")
     public void siteId() {
         int id = 1;
-        RcrainfoSite site = new RcrainfoSite();
+        RcraSite site = new RcraSite();
         site.setId(id);
         assertEquals(id, site.getId());
     }
@@ -89,14 +89,14 @@ public class RcrainfoSiteTests {
     @Test
     @DisplayName("Should initialize with null site address")
     public void nullSiteAddressOnInit() {
-        RcrainfoSite site = new RcrainfoSite();
+        RcraSite site = new RcraSite();
         assertNull(site.getSiteAddress());
     }
 
     @Test
     @DisplayName("Should initialize with null mailing address")
     public void nullMailingAddressOnInit() {
-        RcrainfoSite site = new RcrainfoSite();
+        RcraSite site = new RcraSite();
         assertNull(site.getMailingAddress());
     }
 }

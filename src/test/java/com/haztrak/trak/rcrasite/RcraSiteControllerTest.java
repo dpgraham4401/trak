@@ -1,7 +1,7 @@
-package com.haztrak.trak.rcrainfosite;
+package com.haztrak.trak.rcrasite;
 
 
-import com.haztrak.trak.rcrainfosite.errors.RcrainfoSiteNotFoundException;
+import com.haztrak.trak.rcrasite.errors.RcraSiteNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,10 +14,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+<<<<<<<< HEAD:src/test/java/com/haztrak/trak/rcrasite/RcrainfoSiteControllerTests.java
 public class RcrainfoSiteControllerTests {
+========
+public class RcraSiteControllerTest {
+>>>>>>>> b082e6b (rename RcrainfoSite package (and classes) to RcraSite):src/test/java/com/haztrak/trak/rcrasite/RcraSiteControllerTest.java
 
     @MockBean
-    private RcrainfoSiteService service;
+    private RcraSiteService service;
 
     @Autowired
     TestRestTemplate restTemplate;
@@ -29,7 +33,7 @@ public class RcrainfoSiteControllerTests {
 
     @Test
     public void Returns404WhenNotFound() {
-        when(service.findByEpaId("bad-site-id")).thenThrow(new RcrainfoSiteNotFoundException("bad-site-id"));
+        when(service.findByEpaId("bad-site-id")).thenThrow(new RcraSiteNotFoundException("bad-site-id"));
         ResponseEntity<String> response = restTemplate.getForEntity("/api/site/bad-site-id", String.class);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);

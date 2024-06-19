@@ -1,8 +1,8 @@
-package com.haztrak.trak.rcrainfosite;
+package com.haztrak.trak.rcrasite;
 
 
-import com.haztrak.trak.rcrainfosite.errors.RcrainfoSiteNotFoundException;
-import com.haztrak.trak.rcrainfosite.repository.RcrainfoSiteRepository;
+import com.haztrak.trak.rcrasite.errors.RcraSiteNotFoundException;
+import com.haztrak.trak.rcrasite.repository.RcraSiteRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,22 +18,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest(classes = {RcrainfoSiteService.class},webEnvironment= SpringBootTest.WebEnvironment.NONE)
-public class RcrainfoSiteServiceTests {
+@SpringBootTest(classes = {RcraSiteService.class},webEnvironment= SpringBootTest.WebEnvironment.NONE)
+public class RcraSiteServiceTests {
 
     @Autowired
-    private RcrainfoSiteService service;
+    private RcraSiteService service;
 
     @MockBean
-    private RcrainfoSiteRepository repository;
+    private RcraSiteRepository repository;
 
     @Test
     @DisplayName("findByEpaId returns site when found")
     public void findByEpaIdReturnsSiteWhenFound() {
         String epaId = "good-site-id";
-        RcrainfoSite expectedSite = new RcrainfoSite("foo", epaId);
+        RcraSite expectedSite = new RcraSite("foo", epaId);
         when(repository.findByEpaId(epaId)).thenReturn(Optional.of(expectedSite));
-        RcrainfoSite actualSite = service.findByEpaId(epaId);
+        RcraSite actualSite = service.findByEpaId(epaId);
         assertThat(actualSite).isEqualTo(expectedSite);
     }
 
@@ -41,26 +41,26 @@ public class RcrainfoSiteServiceTests {
     @DisplayName("findByEpaId throws exception when not found")
     public void findByEpaIdThrowsExceptionWhenNotFound() {
         String epaId = "bad-site-id";
-        when(repository.findByEpaId(epaId)).thenThrow(new RcrainfoSiteNotFoundException(epaId));
-        assertThrows(RcrainfoSiteNotFoundException.class, () -> service.findByEpaId(epaId));
+        when(repository.findByEpaId(epaId)).thenThrow(new RcraSiteNotFoundException(epaId));
+        assertThrows(RcraSiteNotFoundException.class, () -> service.findByEpaId(epaId));
     }
 
     @Test
     @DisplayName("findAll returns all sites")
     public void findAllReturnsAllSites() {
-        List<RcrainfoSite> expectedSites = Arrays.asList(new RcrainfoSite(), new RcrainfoSite());
+        List<RcraSite> expectedSites = Arrays.asList(new RcraSite(), new RcraSite());
         when(repository.findAll()).thenReturn(expectedSites);
-        List<RcrainfoSite> actualSites = service.findAll();
+        List<RcraSite> actualSites = service.findAll();
         assertThat(actualSites).isEqualTo(expectedSites);
     }
 
     @Test
     @DisplayName("findAllUserSites returns sites for user")
     public void findAllUserSitesReturnsSitesForUser() {
-        List<RcrainfoSite> expectedSites = Arrays.asList(new RcrainfoSite(), new RcrainfoSite());
+        List<RcraSite> expectedSites = Arrays.asList(new RcraSite(), new RcraSite());
         String user = "user1";
         when(repository.findByUser(user)).thenReturn(expectedSites);
-        List<RcrainfoSite> actualSites = service.findAllUserSites(user);
+        List<RcraSite> actualSites = service.findAllUserSites(user);
         assertThat(actualSites).isEqualTo(expectedSites);
     }
 
@@ -69,7 +69,7 @@ public class RcrainfoSiteServiceTests {
     public void findAllUserSitesReturnsEmptyListForUnknownUser() {
         String unknownUser = "unknown-user";
         when(repository.findByUser(unknownUser)).thenReturn(Collections.emptyList());
-        List<RcrainfoSite> actualSites = service.findAllUserSites(unknownUser);
+        List<RcraSite> actualSites = service.findAllUserSites(unknownUser);
         assertThat(actualSites).isEmpty();
     }
 }
