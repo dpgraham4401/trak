@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api/site")
 public class RcraSiteController {
     private final RcraSiteService service;
 
@@ -19,13 +19,13 @@ public class RcraSiteController {
         service = rcraSiteService;
     }
 
-    @GetMapping("site")
+    @GetMapping("")
     ResponseEntity<List<RcraSite>> findByEpaId() {
         List<RcraSite> sites = service.findAll();
         return ResponseEntity.ok(sites);
     }
 
-    @GetMapping("site/user")
+    @GetMapping("/user")
     ResponseEntity<List<RcraSite>> userSites() {
         List<RcraSite> site = service.findAllUserSites("mockUser");
         if (site == null) {
@@ -34,7 +34,7 @@ public class RcraSiteController {
         return ResponseEntity.ok(site);
     }
 
-    @GetMapping("site/{epaId}")
+    @GetMapping("/{epaId}")
     ResponseEntity<RcraSite> findByEpaId(@PathVariable String epaId) {
         RcraSite site = service.findByEpaId(epaId);
         if (site == null) {
