@@ -1,6 +1,7 @@
 -- Drop tables if they exist
 DROP TABLE IF EXISTS rcra_site;
 DROP TABLE IF EXISTS address;
+DROP TABLE IF EXISTS site;
 DROP TABLE IF EXISTS organization;
 DROP TYPE IF EXISTS site_type;
 
@@ -42,4 +43,13 @@ CREATE TABLE rcra_site
     site_address_id    INTEGER,
     FOREIGN KEY (mailing_address_id) REFERENCES address (id),
     FOREIGN KEY (site_address_id) REFERENCES address (id)
+);
+
+CREATE TABLE site
+(
+    id          SERIAL PRIMARY KEY,
+    name        VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    org         INTEGER,
+    FOREIGN KEY (org) REFERENCES organization (id)
 );

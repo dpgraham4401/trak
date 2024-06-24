@@ -20,7 +20,7 @@ public class SiteTests {
     @DisplayName("site ID getter")
     public void idIsSetCorrectly() {
         String id = "site_id_1";
-        Site mySite = new Site(id, "Test name", org);
+        Site mySite = new Site("Test name", org, id);
         assertEquals(id, mySite.getId());
     }
 
@@ -28,7 +28,7 @@ public class SiteTests {
     @DisplayName("name getter")
     public void nameIsSetCorrectly() {
         String name = "Test";
-        Site mySite = new Site("id", name, org);
+        Site mySite = new Site(name, org);
         assertEquals(name, mySite.getName());
     }
 
@@ -36,7 +36,7 @@ public class SiteTests {
     @DisplayName("Org getter")
     public void OrgGetterReturnsOrgInstance() {
         String name = "Test";
-        Site mySite = new Site("id", name, org);
+        Site mySite = new Site(name, org);
         assertEquals(name, mySite.getName());
     }
 
