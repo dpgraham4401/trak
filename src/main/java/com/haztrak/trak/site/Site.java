@@ -2,26 +2,30 @@ package com.haztrak.trak.site;
 
 import com.haztrak.trak.org.Org;
 import jakarta.persistence.*;
+import org.springframework.lang.NonNull;
 
 public class Site {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private final String id;
 
-    private String name;
+    @Column(name = "name")
+    private final String name;
 
     @Column(name = "description")
     private String description;
 
 
     @ManyToOne
+    @NonNull
     @JoinColumn(name = "org")
-    private Org org;
+    private final Org org;
 
-    public Site(String id, String name) {
+    public Site(String id, String name, @NonNull Org org) {
         this.id = id;
         this.name = name;
+        this.org = org;
     }
 
     public String getId() {
@@ -30,5 +34,9 @@ public class Site {
 
     public String getName() {
         return name;
+    }
+
+    public Org getOrg() {
+        return org;
     }
 }
