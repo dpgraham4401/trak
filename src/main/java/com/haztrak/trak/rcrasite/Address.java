@@ -1,4 +1,4 @@
-package com.haztrak.trak.rcrainfosite;
+package com.haztrak.trak.rcrasite;
 
 import jakarta.persistence.*;
 
@@ -12,14 +12,23 @@ public class Address {
 
     @Column(name = "street_number")
     private String streetNumber;
+
     @Column(name = "address_1", nullable = false)
     private String address1;
+
     @Column(name = "address_2")
     private String address2;
 
+    @Column(name = "city")
     private String city;
+
+    @Column(name = "state", nullable = false)
     private String state;
+
+    @Column(name = "country", nullable = false)
     private String country;
+
+    @Column(name = "zip")
     private String zip;
 
     public void setStreetNumber(String streetNumber) {

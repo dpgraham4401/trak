@@ -1,16 +1,18 @@
-package com.haztrak.trak.rcrainfosite;
+package com.haztrak.trak.rcrasite;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "rcrainfo_site")
-public class RcrainfoSite {
+@Table(name = "rcra_site")
+public class RcraSite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column(name = "epa_id")
     private String epaId;
+
     @Column(name = "name", nullable = false)
     private String name;
 
@@ -30,7 +32,7 @@ public class RcrainfoSite {
     @JoinColumn(name = "site_address_id")
     private Address siteAddress;
 
-    public RcrainfoSite() {
+    public RcraSite() {
     }
 
     public Address getSiteAddress() {
@@ -49,7 +51,7 @@ public class RcrainfoSite {
         this.mailingAddress = mailingAddress;
     }
 
-    public RcrainfoSite(String name, String epaId) {
+    public RcraSite(String name, String epaId) {
         this.name = name;
         this.epaId = epaId;
     }

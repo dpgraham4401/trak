@@ -1,4 +1,4 @@
-package com.haztrak.trak.rcrainfosite;
+package com.haztrak.trak.rcrasite;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
